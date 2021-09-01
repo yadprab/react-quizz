@@ -8,6 +8,8 @@ function Correct() {
           height={25}
           viewBox="0 0 24 25"
           fill="none"
+
+          id='correct--icon'
           xmlns="http://www.w3.org/2000/svg"
         >
           <g clipPath="url(#clip0)">

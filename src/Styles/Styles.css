@@ -1,18 +1,19 @@
 :root {
-  --bg:#FCFDFD;
-  --logo:#086B6B;
-  --topbg:#E5F7F7;
-  --text1:#232828;
-  --button:#355757;
-  --question:#0B5D5D;
-  --optionsBorder:#7CA1A1;
-  --option:#212D2D;
-  --selected:#343636;
-  --wrongBg:#FEF6F6;
-  --correctBg:#E2F6F6;
-  --correctText:#276565;
-  --wrongText:#861111;
-  --shadow:#BBB7B7;
+  --bg: #FCFDFD;
+  --logo: #086B6B;
+  --topbg: #E5F7F7;
+  --text1: #232828;
+  --button: #355757;
+  --question: #0B5D5D;
+  --optionsBorder: #7CA1A1;
+  --option: #212D2D;
+  --selected: #343636;
+  --wrongBg: #FEF6F6;
+  --correctBg: #BEF3F3;
+  --correctText: #276565;
+  --wrongText: #861111;
+  --shadow: #BBB7B7;
+  --disabled: #CBD2D2;
 }
 
 :root {
@@ -258,6 +259,20 @@ main .quiz--position .options ul li button {
   color: var(--option);
   -webkit-transition: background 0.4s ease-in;
   transition: background 0.4s ease-in;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .quiz--position .options ul li button:disabled {
+  color: var(--disabled);
+  border-color: var(--disabled);
 }
 
 #selected {
@@ -313,7 +328,8 @@ main .quiz--position .options ul li button {
   color: var(--button);
 }
 
-.submit--area #submit, .submit--area #next {
+.submit--area #submit,
+.submit--area #next {
   background-color: var(--button);
   color: var(--bg);
   min-width: 96px;
@@ -325,5 +341,31 @@ main .quiz--position .options ul li button {
 
 .submit--area #correctAnswer {
   color: var(--correctText);
+}
+
+#fail {
+  border: unset;
+  background-color: var(--wrongBg);
+  color: var(--wrongText);
+  font-family: 'Circe Bold';
+}
+
+#fail .icons--section #correct--icon {
+  display: none;
+}
+
+#success {
+  border: unset;
+  background-color: var(--correctBg);
+  color: var(--correctText);
+  font-family: 'Circe Bold';
+}
+
+#success .icons--section #wrong--icon {
+  display: none;
+}
+
+#notSelected .icons--section {
+  display: none;
 }
 /*# sourceMappingURL=Styles.css.map */

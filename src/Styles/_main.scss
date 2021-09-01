@@ -15,11 +15,11 @@ main {
         p {
             margin-bottom: 0;
             font-family: 'Circe Bold';
-        
+
             color: var(--logo);
         }
 
-        
+
     }
 
     .bottom--section {
@@ -34,36 +34,36 @@ main {
             color: var(--text1);
         }
 
-        button{
+        button {
             @include medium-button;
             background-color: var(--button);
             color: var(--bg);
-             font-family: 'Circe Bold';
-             font-weight: normal;
-             @include flex-1;
-             height: 48px;
+            font-family: 'Circe Bold';
+            font-weight: normal;
+            @include flex-1;
+            height: 48px;
 
-             svg{
-                 margin-left: 0.5em;
-             }
+            svg {
+                margin-left: 0.5em;
+            }
         }
     }
 
 
-    .quiz--position{
+    .quiz--position {
         padding: 1em;
 
-        h1{
+        h1 {
             font-size: 1.5rem;
             color: var(--question);
         }
 
-        .options{
-            ul{
+        .options {
+            ul {
                 list-style: none;
 
-                li{
-                    button{
+                li {
+                    button {
                         padding: 1em;
                         width: 100%;
                         height: 100%;
@@ -75,11 +75,19 @@ main {
                         border-radius: 50px;
                         font-size: 1rem;
                         cursor: pointer;
-                         font-family: 'Circe';
-                         color: var(--option);
-                         transition: background 0.4s ease-in;
+                        font-family: 'Circe';
+                        color: var(--option);
+                        transition: background 0.4s ease-in;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
 
-                       
+                        &:disabled {
+                            color: var(--disabled);
+                            border-color: var(--disabled);
+                        }
+
+
                     }
                 }
             }
@@ -87,16 +95,16 @@ main {
     }
 }
 
-#selected{
+#selected {
     background-color: var(--selected);
     border: unset;
     color: var(--bg);
-      font-family: 'Circe Bold';
+    font-family: 'Circe Bold';
 }
 
 .submit--area {
     padding: 1em;
-    background:var(--bg);
+    background: var(--bg);
     position: fixed;
     bottom: 0;
     right: 0;
@@ -107,7 +115,7 @@ main {
     box-shadow: 0 0 20px rgba($color: #BBB7B7, $alpha: 0.41);
 
 
-    p{
+    p {
         margin-bottom: 0;
         font-family: 'Circe';
         text-transform: capitalize;
@@ -115,33 +123,72 @@ main {
 
 
 
-    button{
+    button {
         @include medium-button;
-         font-family: 'Circe Bold';
+        font-family: 'Circe Bold';
     }
 
 
-    #cancel{
+    #cancel {
         background-color: unset;
         color: var(--button);
     }
-    #submit,#next{
+
+    #submit,
+    #next {
         background-color: var(--button);
         color: var(--bg);
         min-width: 96px;
     }
 
-    #wrongAnswer{
+    #wrongAnswer {
         color: var(--wrongText);
+
     }
 
-    #correctAnswer{
+    #correctAnswer {
         color: var(--correctText);
     }
 
-    
-    
-  
 
 
+
+
+
+
+}
+
+#fail {
+    border: unset;
+    background-color: var(--wrongBg);
+    color: var(--wrongText);
+    font-family: 'Circe Bold';
+
+    .icons--section {
+        #correct--icon {
+            display: none;
+        }
+    }
+}
+
+#success {
+    border: unset;
+    background-color: var(--correctBg);
+    color: var(--correctText);
+    font-family: 'Circe Bold';
+
+    .icons--section {
+        #wrong--icon {
+            display: none;
+        }
+    }
+
+
+}
+
+#notSelected {
+
+    .icons--section {
+        display: none;
+    }
 }

@@ -1,6 +1,7 @@
 import React, { useReducer } from "react";
 import { Logo } from "./Logo";
 import { data } from "./data";
+import { Icons } from "./Icons";
 const initialState = {
   value: 0,
   isSelected: false,
@@ -42,9 +43,6 @@ const reducer = (state, action) => {
           state.correctAnswer === state.selectedAnswer
             ? "correct Answer"
             : "wrong Answer",
-
-        // value:
-        //   state.value < data.length - 1 ? state.value + 1 : (state.value = 0),
       };
 
     case "next":
@@ -107,6 +105,8 @@ function QuizSection() {
                               }}
                             >
                               {o}
+
+                              {val.isSubmit && <Icons />}
                             </button>
                           </li>
                         );
@@ -143,6 +143,22 @@ function QuizSection() {
 
                 buttons.forEach((b) => {
                   b.disabled = "true";
+
+                  if (b.id === "selected") {
+                    if (val.correctAnswer === val.selectedAnswer) {
+                      b.id = "success";
+                    } else {
+                      b.id = "fail";
+                    }
+                  } else {
+                    [...buttons]
+                      .filter((f) => {
+                        return f.textContent === val.correctAnswer;
+                      })
+                      .forEach((g) => {
+                        g.id = "success";
+                      });
+                  }
                 });
               }}
             >

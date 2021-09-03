@@ -6,7 +6,11 @@ function App() {
   const [state, setState] = useState({ selected: false });
   return (
     <div className="main--wrapper">
-      {state.selected ? <QuizSection /> : <Main setState={setState} />}
+      {state.selected ? (
+        <QuizSection setState={setState} />
+      ) : (
+        <Main setState={setState} />
+      )}
     </div>
   );
 }

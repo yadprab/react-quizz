@@ -32,6 +32,7 @@ main {
             font-size: 1.5rem;
             text-align: center;
             color: var(--text1);
+
         }
 
         button {
@@ -42,6 +43,10 @@ main {
             font-weight: normal;
             @include flex-1;
             height: 48px;
+
+             &:hover {
+                 background-color: var(--hover);
+             }
 
             svg {
                 margin-left: 0.5em;
@@ -56,6 +61,7 @@ main {
         h1 {
             font-size: 1.5rem;
             color: var(--question);
+            margin-bottom: 1.5em;
         }
 
         .options {
@@ -126,6 +132,8 @@ main {
     button {
         @include medium-button;
         font-family: 'Circe Bold';
+
+        
     }
 
 
@@ -134,11 +142,22 @@ main {
         color: var(--button);
     }
 
-    #submit,
-    #next {
+    #submit {
         background-color: var(--button);
         color: var(--bg);
         min-width: 96px;
+
+         &:hover {
+             background-color: var(--hover);
+         }
+    }
+
+    #next{
+        display: flex;
+        justify-content: space-between;
+        min-width: 128px;
+                background-color: var(--text1);
+                color: var(--bg);
     }
 
     #wrongAnswer {
@@ -192,3 +211,33 @@ main {
         display: none;
     }
 }
+
+.finished {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: var(--bg);
+    bottom: 0;
+
+    .results {
+        @include flex-2;
+
+        p {
+            font-family: 'Circe Light';
+            font-size: 1.25rem;
+            color: var(--text1);
+        }
+    }
+
+    .bottom--section{
+        button {
+            min-width: 160px;
+            justify-content: space-between;
+        }
+
+    }
+
+
+}
+

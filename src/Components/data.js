@@ -1,7 +1,7 @@
 const data = [
   [
     {
-      question: "Who created Sherlock Holmes?",
+      question: "1. Who created Sherlock Holmes?",
       options: [
         "A. Bob Kane",
         "B. Ian Fleming",
@@ -14,11 +14,11 @@ const data = [
   [
     {
       question:
-        "Which two countries have not missed one of the modern-day Olympics?",
+        "2. Which two countries have not missed one of the modern-day Olympics?",
       options: [
-        "A. India",
-        "B. England",
-        "C. Pakistan",
+        "A. India and Pakistan",
+        "B. England and USA",
+        "C. Pakistan and New zealand",
         "D. Greece and Australia",
       ],
       correctAnswer: "D. Greece and Australia",
@@ -26,18 +26,19 @@ const data = [
   ],
   [
     {
-      question: "In what type of matter are atoms most tightly packed?",
+      question: "3. In what type of matter are atoms most tightly packed?",
       options: ["A. Solid", "B. Liquid", "C. Gas", "D. Atom"],
       correctAnswer: "A. Solid",
     },
   ],
   [
     {
-      question: "What is a duel between three people called?",
+      question: "4. What is a duel between three people called?",
       options: ["A. Cruel", "B. Duel", "C. Truel", "D. Single"],
       correctAnswer: "C. Truel",
     },
   ],
+  
 ];
 
 export { data };

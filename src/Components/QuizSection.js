@@ -2,6 +2,10 @@ import React, { useReducer } from "react";
 import { Logo } from "./Logo";
 import { data } from "./data";
 import { Icons } from "./Icons";
+import { Chev } from "./Chev";
+
+import { Failure } from "./Failure";
+import { Success } from "./Success";
 const initialState = {
   value: 0,
   isSelected: false,
@@ -12,6 +16,9 @@ const initialState = {
   result: "",
   isWrong: false,
   isCorrect: false,
+  isFinished: false,
+  Score: 0,
+  total: data.length,
 };
 
 const reducer = (state, action) => {
@@ -43,6 +50,11 @@ const reducer = (state, action) => {
           state.correctAnswer === state.selectedAnswer
             ? "correct Answer"
             : "wrong Answer",
+
+        Score:
+          state.correctAnswer === state.selectedAnswer
+            ? state.Score + 1
+            : state.Score,
       };
 
     case "next":
@@ -55,14 +67,16 @@ const reducer = (state, action) => {
         isWrong: false,
         result: "",
         value:
-          state.value < data.length - 1 ? state.value + 1 : (state.value = 0),
+          (state.value < data.length - 1) & (state.isFinished === false)
+            ? state.value + 1
+            : (state.isFinished = true) & (state.value = 0),
       };
     default:
       return state;
   }
 };
 
-function QuizSection() {
+function QuizSection({ setState }) {
   const [val, dispatch] = useReducer(reducer, initialState);
 
   return (
@@ -185,7 +199,35 @@ function QuizSection() {
               }}
             >
               Next
+              <Chev />
             </button>
+          </div>
+        )}
+
+        {val.isFinished && (
+          <div className="finished">
+            <div className="top--section">
+              <nav>
+                <Logo />
+                <p>Grandmaster</p>
+              </nav>
+              {val.Score === 0 ? <Failure /> : <Success />}
+            </div>
+            <div className="bottom--section">
+              <h1>Completed</h1>
+              <div className="results">
+                <p>Total Questions:{val.total}</p>
+                <p>Total Correct Answers:{val.Score}</p>
+              </div>
+
+              <button
+                onClick={() => {
+                  setState({ selected: false });
+                }}
+              >
+                Try again <Chev />
+              </button>
+            </div>
           </div>
         )}
       </main>

@@ -14,6 +14,7 @@
   --wrongText: #861111;
   --shadow: #BBB7B7;
   --disabled: #CBD2D2;
+  --hover: #266060;
 }
 
 :root {
@@ -224,6 +225,10 @@ main .bottom--section button {
   height: 48px;
 }
 
+main .bottom--section button:hover {
+  background-color: var(--hover);
+}
+
 main .bottom--section button svg {
   margin-left: 0.5em;
 }
@@ -235,6 +240,7 @@ main .quiz--position {
 main .quiz--position h1 {
   font-size: 1.5rem;
   color: var(--question);
+  margin-bottom: 1.5em;
 }
 
 main .quiz--position .options ul {
@@ -328,11 +334,26 @@ main .quiz--position .options ul li button:disabled {
   color: var(--button);
 }
 
-.submit--area #submit,
-.submit--area #next {
+.submit--area #submit {
   background-color: var(--button);
   color: var(--bg);
   min-width: 96px;
+}
+
+.submit--area #submit:hover {
+  background-color: var(--hover);
+}
+
+.submit--area #next {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-width: 128px;
+  background-color: var(--text1);
+  color: var(--bg);
 }
 
 .submit--area #wrongAnswer {
@@ -367,5 +388,43 @@ main .quiz--position .options ul li button:disabled {
 
 #notSelected .icons--section {
   display: none;
+}
+
+.finished {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: var(--bg);
+  bottom: 0;
+}
+
+.finished .results {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.finished .results p {
+  font-family: 'Circe Light';
+  font-size: 1.25rem;
+  color: var(--text1);
+}
+
+.finished .bottom--section button {
+  min-width: 160px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 /*# sourceMappingURL=Styles.css.map */

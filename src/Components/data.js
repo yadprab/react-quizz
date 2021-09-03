@@ -37,7 +37,7 @@ const data = [
       options: ["A. Cruel", "B. Duel", "C. Truel", "D. Single"],
       correctAnswer: "C. Truel",
     },
-  ],
+  ],gi
   
 ];
 

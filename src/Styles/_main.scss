@@ -219,6 +219,7 @@ main {
     left: 0;
     background: var(--bg);
     bottom: 0;
+    overflow-y: scroll;
 
     .results {
         @include flex-2;

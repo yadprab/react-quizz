@@ -397,6 +397,7 @@ main .quiz--position .options ul li button:disabled {
   left: 0;
   background: var(--bg);
   bottom: 0;
+  overflow-y: scroll;
 }
 
 .finished .results {

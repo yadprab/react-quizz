@@ -6,7 +6,10 @@ import { Chev } from "./Chev";
 import { Failure } from "./Failure";
 import { Success } from "./Success";
 const initialState = {
-  value: 0,
+  value: {
+    count: 0,
+    isFinished: false,
+  },
   isSelected: false,
   isSubmit: false,
   isCancel: false,
@@ -15,7 +18,7 @@ const initialState = {
   result: "",
   isWrong: false,
   isCorrect: false,
-  isFinished: false,
+  Attend: 0,
   Score: 0,
   total: data.length,
 };
@@ -45,6 +48,7 @@ const reducer = (state, action) => {
         isSubmit: true,
         isCorrect: state.correctAnswer === state.selectedAnswer && true,
         isWrong: state.correctAnswer !== state.selectedAnswer && true,
+        Attend: state.Attend + 1,
         result:
           state.correctAnswer === state.selectedAnswer
             ? "correct Answer"
@@ -64,11 +68,16 @@ const reducer = (state, action) => {
         isSubmit: false,
         isCorrect: false,
         isWrong: false,
+
         result: "",
-        value:
-          state.value < data.length - 1 && state.isFinished === false
-            ? state.value + 1
-            : (state.isFinished = true) & state.value,
+        value: {
+          count:
+            state.value.count < data.length - 1
+              ? state.value.count + 1
+              : state.value.count,
+
+          isFinished: state.Attend === state.total ? true : false,
+        },
       };
     default:
       return state;
@@ -87,7 +96,7 @@ function QuizSection({ setState }) {
             <p>Grandmaster</p>
           </nav>
           <div className="quiz--position">
-            {data[val.value].map((d) => {
+            {data[val.value.count].map((d) => {
               return (
                 <div className="question--Area" key={d.question}>
                   <h1>{d.question}</h1>
@@ -195,6 +204,7 @@ function QuizSection({ setState }) {
               id="next"
               onClick={() => {
                 dispatch({ type: "next" });
+                console.log(val);
               }}
             >
               Next
@@ -203,7 +213,7 @@ function QuizSection({ setState }) {
           </div>
         )}
 
-        {val.isFinished && (
+        {val.value.isFinished && (
           <div className="finished">
             <div className="top--section">
               <nav>

@@ -3,7 +3,6 @@ import { Logo } from "./Logo";
 import { data } from "./data";
 import { Icons } from "./Icons";
 import { Chev } from "./Chev";
-
 import { Failure } from "./Failure";
 import { Success } from "./Success";
 const initialState = {
@@ -67,7 +66,7 @@ const reducer = (state, action) => {
         isWrong: false,
         result: "",
         value:
-          (state.value < data.length - 1) & (state.isFinished === false)
+          state.value < data.length - 1 && state.isFinished === false
             ? state.value + 1
             : (state.isFinished = true) & state.value,
       };

@@ -44,9 +44,9 @@ main {
             @include flex-1;
             height: 48px;
 
-             &:hover {
-                 background-color: var(--hover);
-             }
+            &:hover {
+                background-color: var(--hover);
+            }
 
             svg {
                 margin-left: 0.5em;
@@ -133,7 +133,7 @@ main {
         @include medium-button;
         font-family: 'Circe Bold';
 
-        
+
     }
 
 
@@ -147,17 +147,17 @@ main {
         color: var(--bg);
         min-width: 96px;
 
-         &:hover {
-             background-color: var(--hover);
-         }
+        &:hover {
+            background-color: var(--hover);
+        }
     }
 
-    #next{
+    #next {
         display: flex;
         justify-content: space-between;
         min-width: 128px;
-                background-color: var(--text1);
-                color: var(--bg);
+        background-color: var(--text1);
+        color: var(--bg);
     }
 
     #wrongAnswer {
@@ -230,7 +230,7 @@ main {
         }
     }
 
-    .bottom--section{
+    .bottom--section {
         button {
             min-width: 160px;
             justify-content: space-between;
@@ -240,4 +240,3 @@ main {
 
 
 }
-
